@@ -1,0 +1,2 @@
+INDEX VERSION 1.127+C:\Users\valentin\Logger\ROSSITTO_BLONDEAU\.metadata\.plugins\org.eclipse.jdt.core
+2283188897.index
