@@ -11,6 +11,11 @@ String level="debug";
 		
 	}
 	
+public String addCible(Cibles cible){
+	ciblesList.add(cible);
+	return "cible ajoutée";
+}	
+	
 public String setLevel(String s){
 	if(s=="debug" || s=="info" || s=="error"){
 	level=s;
