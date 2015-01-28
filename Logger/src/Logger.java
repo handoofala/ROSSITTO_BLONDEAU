@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class Logger {
 	
-static ArrayList<Cibles> ciblesList;
+ArrayList<Cibles> ciblesList;
 String level="debug";
 	public Logger(){
 		ciblesList=new ArrayList<Cibles>();
@@ -11,7 +11,7 @@ String level="debug";
 		
 	}
 	
-public static String addCible(Cibles cible){
+public String addCible(Cibles cible){
 	ciblesList.add(cible);
 	return "cible ajoutée";
 }	
@@ -26,7 +26,7 @@ public String setLevel(String s){
 }
 	
 	
-public static void debug(String message){
+public void debug(String message){
 	
 	write(message);
 	
@@ -50,7 +50,7 @@ public void error(String message){
 	
 }
 
-private static void write(String message){
+private void write(String message){
 	int i;
 	for(i=0;i<ciblesList.size();i++){
 		ciblesList.get(i).write(message);
