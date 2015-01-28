@@ -1,16 +1,23 @@
+
+
+
+
 public class Main {
 	
 	public static void main (String[] args){
 		System.out.println("hello world!");
 		Logger test = new Logger();
-		Terminal terminalTest = new Terminal();
 		
-		test.addCible(terminalTest);
+		
+		test.setLevel("info");
+		
 		test.debug("toto");
 		
 		File fileTest = new File();
 		
 		test.addCible(fileTest);
-		test.debug("toto");
+		test.debug("yolo");
+		test.info("yolo!!!");
+		test.error("houlalal");
 	}
 }
