@@ -7,10 +7,10 @@ public class File extends Cibles{
 	}
 		
 	public void write(String chaine){
-		String fichier ="Logger.properties";
+		String fichier ="toto.log";
 		//création ou ajout dans le fichier texte
 		try {
-			FileWriter fw = new FileWriter (fichier);
+			FileWriter fw = new FileWriter (fichier, true);
 			BufferedWriter bw = new BufferedWriter (fw);
 			PrintWriter fichierSortie = new PrintWriter (bw); 
 			fichierSortie.println (chaine); 

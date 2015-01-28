@@ -7,5 +7,10 @@ public class Main {
 		
 		test.addCible(terminalTest);
 		test.debug("toto");
+		
+		File fileTest = new File();
+		
+		test.addCible(fileTest);
+		test.debug("toto");
 	}
 }
