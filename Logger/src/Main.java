@@ -14,12 +14,18 @@ public class Main {
 		test.debug("toto");
 		
 		test.remoteDate();
-		
+		File file=new File();
+		test.addErrorCible(file);
 		
 		
 		test.info("yolo!!!");
-		test.error("houlalal");
 		test.remoteerrorlevel();
+		test.error("houlalal");
+		test.activeerrorlevel();
+		test.activeDate();
+		
+		test.error("houlalal");
+	
 		test.debug("yolo");
 	}
 }

@@ -126,6 +126,19 @@ public String addDefaultCible(Cibles cible){
 	return "cible ajoutée";
 }	
 	
+public String addErrorCible(Cibles cible){
+	errorList.add(cible);
+	return "cible ajoutée";
+}	
+public String addDebugCible(Cibles cible){
+	debugList.add(cible);
+	return "cible ajoutée";
+}	
+public String addInfoCible(Cibles cible){
+	infoList.add(cible);
+	return "cible ajoutée";
+}	
+
 public String setLevel(String s){
 	if(s=="debug" || s=="info" || s=="error"){
 	level=s;
