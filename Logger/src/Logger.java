@@ -4,6 +4,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import java.util.Date;
 
 public class Logger {
 	
@@ -14,9 +15,9 @@ public class Logger {
 	ArrayList<Cibles> infoList;
 ArrayList<Cibles> ciblesList;
 String level="debug";
-
-
-
+Date date;
+private boolean putDate;
+private boolean puterrorlevel;
 	public Logger() {
 		ciblesList=new ArrayList<Cibles>();
 		errorList=new ArrayList<Cibles>();
@@ -24,6 +25,9 @@ String level="debug";
 		infoList=new ArrayList<Cibles>();
 		FileReader fr;
 		BufferedReader bf;
+		putDate=true;
+		puterrorlevel=true;
+		
 		try{
 			fr=new FileReader("src/Logger.properties");
 			bf = new BufferedReader(fr);
@@ -82,6 +86,19 @@ String level="debug";
 		return false;
 	}
 	
+	public void activeDate(){
+		putDate=true;
+		
+	}
+	public void remoteDate(){
+		putDate=false;
+	}
+	public void activeerrorlevel(){
+		puterrorlevel=true;
+	}
+	public void remoteerrorlevel(){
+		puterrorlevel=false;
+	}
 	
 	public boolean findterm(BufferedReader bf) throws IOException{
 		String s;
@@ -121,24 +138,29 @@ public String setLevel(String s){
 	
 public void debug(String message){
 	if(level=="debug")
-	write(message);
-	writedebug(message);
+	write(addDate()+adderrorlevel("debug")+message);
+	writedebug(addDate()+adderrorlevel("debug")+message);
 	
 }
 public void info(String message){
 	if(level=="info" ||level=="debug")
 		
-		write(message);
+		write(addDate()+adderrorlevel("info")+message);
 		
-		writeinfo(message);
+		writeinfo(addDate()+adderrorlevel("info")+message);
 	
 }
-	
+private String adderrorlevel(String a){
+	if(puterrorlevel)return a+"//";
+	return "";
+}
+
+
 public void error(String message){
 	
 	
-	write(message);
-	writeerror(message);
+	write(addDate()+adderrorlevel("error")+message);
+	writeerror(addDate()+adderrorlevel("debug")+message);
 	
 }
 
@@ -149,6 +171,14 @@ private void writeerror(String message){
 		
 	}
 	
+}
+
+private String addDate(){
+	if(putDate==true){
+	date=new Date();
+	return date.toString()+"//";
+	}
+	return ("");
 }
 
 
