@@ -9,15 +9,17 @@ public class Main {
 		Logger test = new Logger();
 		
 		
-		test.setLevel("info");
+		test.setLevel("debug");
 		
 		test.debug("toto");
 		
-		File fileTest = new File();
+		test.remoteDate();
 		
-		test.addCible(fileTest);
-		test.debug("yolo");
+		
+		
 		test.info("yolo!!!");
 		test.error("houlalal");
+		test.remoteerrorlevel();
+		test.debug("yolo");
 	}
 }
