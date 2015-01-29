@@ -7,10 +7,21 @@ import java.util.ArrayList;
 
 public class Logger {
 	
+	
+	ArrayList<Cibles> errorList;
+	
+	ArrayList<Cibles> debugList;
+	ArrayList<Cibles> infoList;
 ArrayList<Cibles> ciblesList;
 String level="debug";
+
+
+
 	public Logger() {
 		ciblesList=new ArrayList<Cibles>();
+		errorList=new ArrayList<Cibles>();
+		debugList=new ArrayList<Cibles>();
+		infoList=new ArrayList<Cibles>();
 		FileReader fr;
 		BufferedReader bf;
 		try{
@@ -93,7 +104,7 @@ String level="debug";
 	}
 	
 	
-public String addCible(Cibles cible){
+public String addDefaultCible(Cibles cible){
 	ciblesList.add(cible);
 	return "cible ajoutée";
 }	
@@ -111,16 +122,15 @@ public String setLevel(String s){
 public void debug(String message){
 	if(level=="debug")
 	write(message);
-	
+	writedebug(message);
 	
 }
 public void info(String message){
-	if(level=="info" ||level=="debug"){
+	if(level=="info" ||level=="debug")
 		
 		write(message);
 		
-	}
-	
+		writeinfo(message);
 	
 }
 	
@@ -128,7 +138,35 @@ public void error(String message){
 	
 	
 	write(message);
+	writeerror(message);
 	
+}
+
+private void writeerror(String message){
+	int i;
+	for(i=0;i<errorList.size();i++){
+		errorList.get(i).write(message);
+		
+	}
+	
+}
+
+
+private void writeinfo(String message){
+	int i;
+	for(i=0;i<infoList.size();i++){
+		infoList.get(i).write(message);
+		
+	}
+	
+}
+
+private void writedebug(String message){
+	int i;
+	for(i=0;i<debugList.size();i++){
+		debugList.get(i).write(message);
+		
+	}
 	
 }
 
