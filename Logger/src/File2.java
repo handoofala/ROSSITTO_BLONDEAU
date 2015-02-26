@@ -4,7 +4,6 @@ import java.io.PrintWriter;
 import java.io.File;
 import java.io.RandomAccessFile;
 
-
 public class File2 extends Cibles{
 
 	public File2(){
