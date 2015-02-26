@@ -48,7 +48,7 @@ private boolean puterrorlevel;
 			fr=new FileReader("src/Logger.properties");
 			bf = new BufferedReader(fr);
 			if(findfile(bf)){
-				File file=new File();
+				File2 file=new File2();
 				ciblesList.add(file);
 			}
 			

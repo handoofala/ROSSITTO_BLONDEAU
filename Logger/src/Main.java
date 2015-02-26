@@ -14,8 +14,8 @@ public class Main {
 		test.debug("toto");
 		
 		test.remoteDate();
-		File file=new File();
-		test.addErrorCible(file);
+		File2 file2 = new File2();
+		test.addErrorCible(file2);
 		
 		
 		test.info("yolo!!!");
