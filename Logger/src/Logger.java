@@ -13,11 +13,12 @@ public class Logger {
 	
 	ArrayList<Cibles> debugList;
 	ArrayList<Cibles> infoList;
-ArrayList<Cibles> ciblesList;
-String level="debug";
-Date date;
-private boolean putDate;
-private boolean puterrorlevel;
+	ArrayList<Cibles> ciblesList;
+	String level="debug";
+	Date date;
+	private boolean putDate;
+	private boolean puterrorlevel;
+	
 	public Logger() {
 		ciblesList=new ArrayList<Cibles>();
 		errorList=new ArrayList<Cibles>();
@@ -121,105 +122,105 @@ private boolean puterrorlevel;
 	}
 	
 	
-public String addDefaultCible(Cibles cible){
-	ciblesList.add(cible);
-	return "cible ajoutée";
-}	
+	public String addDefaultCible(Cibles cible){
+		ciblesList.add(cible);
+		return "cible ajoutée";
+	}	
+		
+	public String addErrorCible(Cibles cible){
+		errorList.add(cible);
+		return "cible ajoutée";
+	}	
+	public String addDebugCible(Cibles cible){
+		debugList.add(cible);
+		return "cible ajoutée";
+	}	
+	public String addInfoCible(Cibles cible){
+		infoList.add(cible);
+		return "cible ajoutée";
+	}	
 	
-public String addErrorCible(Cibles cible){
-	errorList.add(cible);
-	return "cible ajoutée";
-}	
-public String addDebugCible(Cibles cible){
-	debugList.add(cible);
-	return "cible ajoutée";
-}	
-public String addInfoCible(Cibles cible){
-	infoList.add(cible);
-	return "cible ajoutée";
-}	
-
-public String setLevel(String s){
-	if(s=="debug" || s=="info" || s=="error"){
-	level=s;
-	return "ok";
-	
+	public String setLevel(String s){
+		if(s=="debug" || s=="info" || s=="error"){
+		level=s;
+		return "ok";
+		
+		}
+		else return "invalid statement";
 	}
-	else return "invalid statement";
-}
-	
-	
-public void debug(String message){
-	if(level=="debug")
-	write(addDate()+adderrorlevel("debug")+message);
-	writedebug(addDate()+adderrorlevel("debug")+message);
-	
-}
-public void info(String message){
-	if(level=="info" ||level=="debug")
 		
-		write(addDate()+adderrorlevel("info")+message);
 		
-		writeinfo(addDate()+adderrorlevel("info")+message);
+	public void debug(String message){
+		if(level=="debug")
+		write(addDate()+adderrorlevel("debug")+message);
+		writedebug(addDate()+adderrorlevel("debug")+message);
+		
+	}
+	public void info(String message){
+		if(level=="info" ||level=="debug")
+			
+			write(addDate()+adderrorlevel("info")+message);
+			
+			writeinfo(addDate()+adderrorlevel("info")+message);
+		
+	}
+	private String adderrorlevel(String a){
+		if(puterrorlevel)return a+"//";
+		return "";
+	}
 	
-}
-private String adderrorlevel(String a){
-	if(puterrorlevel)return a+"//";
-	return "";
-}
-
-
-public void error(String message){
 	
-	
-	write(addDate()+adderrorlevel("error")+message);
-	writeerror(addDate()+adderrorlevel("debug")+message);
-	
-}
-
-private void writeerror(String message){
-	int i;
-	for(i=0;i<errorList.size();i++){
-		errorList.get(i).write(message);
+	public void error(String message){
+		
+		
+		write(addDate()+adderrorlevel("error")+message);
+		writeerror(addDate()+adderrorlevel("debug")+message);
 		
 	}
 	
-}
-
-private String addDate(){
-	if(putDate==true){
-	date=new Date();
-	return date.toString()+"//";
-	}
-	return ("");
-}
-
-
-private void writeinfo(String message){
-	int i;
-	for(i=0;i<infoList.size();i++){
-		infoList.get(i).write(message);
+	private void writeerror(String message){
+		int i;
+		for(i=0;i<errorList.size();i++){
+			errorList.get(i).write(message);
+			
+		}
 		
 	}
 	
-}
-
-private void writedebug(String message){
-	int i;
-	for(i=0;i<debugList.size();i++){
-		debugList.get(i).write(message);
+	private String addDate(){
+		if(putDate==true){
+		date=new Date();
+		return date.toString()+"//";
+		}
+		return ("");
+	}
+	
+	
+	private void writeinfo(String message){
+		int i;
+		for(i=0;i<infoList.size();i++){
+			infoList.get(i).write(message);
+			
+		}
 		
 	}
 	
-}
-
-private void write(String message){
-	int i;
-	for(i=0;i<ciblesList.size();i++){
-		ciblesList.get(i).write(message);
+	private void writedebug(String message){
+		int i;
+		for(i=0;i<debugList.size();i++){
+			debugList.get(i).write(message);
+			
+		}
 		
 	}
 	
-}
+	private void write(String message){
+		int i;
+		for(i=0;i<ciblesList.size();i++){
+			ciblesList.get(i).write(message);
+			
+		}
+		
+	}
 
 }
